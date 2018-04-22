@@ -3,7 +3,8 @@
  */
 
 enum PaymentMethodType {
-    CreditCard = 'CreditCard'
+    CreditCard = 'CreditCard',
+    Pecorino = 'Pecorino'
 }
 
 export default PaymentMethodType;

@@ -1,6 +1,5 @@
 /**
  * kwskfs-factory
- * @module
  */
 
 import * as ActionFactory from './factory/action';
@@ -8,7 +7,6 @@ import * as AuthorizeActionFactory from './factory/action/authorize';
 import * as CreditCardAuthorizeActionFactory from './factory/action/authorize/creditCard';
 import * as MvtkAuthorizeActionFactory from './factory/action/authorize/mvtk';
 import * as PecorinoAuthorizeActionFactory from './factory/action/authorize/pecorino';
-import * as seatReservationAuthorizeActionFactory from './factory/action/authorize/seatReservation';
 import * as UseMvtkActionFactory from './factory/action/consume/use/mvtk';
 import * as OrderActionFactory from './factory/action/trade/order';
 import * as PayActionFactory from './factory/action/trade/pay';
@@ -26,8 +24,8 @@ import * as ClientUserFactory from './factory/clientUser';
 import * as EmailMessageFactory from './factory/creativeWork/message/email';
 import * as MovieCreativeWorkFactory from './factory/creativeWork/movie';
 import CreativeWorkType from './factory/creativeWorkType';
-import * as IndividualScreeningEventFactory from './factory/event/individualScreeningEvent';
-import * as ScreeningEventFactory from './factory/event/screeningEvent';
+import * as FoodEventFactory from './factory/event/food';
+import * as SportsEventFactory from './factory/event/sports';
 import EventStatusType from './factory/eventStatusType';
 import EventType from './factory/eventType';
 import IMultilingualString from './factory/multilingualString';
@@ -35,7 +33,7 @@ import * as SeatReservationOfferFactory from './factory/offer/seatReservation';
 import * as OrderFactory from './factory/order';
 import OrderStatus from './factory/orderStatus';
 import * as CorporationOrganizationFactory from './factory/organization/corporation';
-import * as MovieTheaterOrganizationFactory from './factory/organization/movieTheater';
+import * as SportsTeamOrganizationFactory from './factory/organization/sportsTeam';
 import CorporationOrganizationIdentifier from './factory/organizationIdentifier/corporation';
 import OrganizationType from './factory/organizationType';
 import * as OwnershipInfoFactory from './factory/ownershipInfo';
@@ -95,7 +93,6 @@ export namespace action {
         export import creditCard = CreditCardAuthorizeActionFactory;
         export import mvtk = MvtkAuthorizeActionFactory;
         export import pecorino = PecorinoAuthorizeActionFactory;
-        export import seatReservation = seatReservationAuthorizeActionFactory;
     }
 
     export namespace trade {
@@ -155,8 +152,8 @@ export namespace creativeWork {
 }
 export import creativeWorkType = CreativeWorkType;
 export namespace event {
-    export import individualScreeningEvent = IndividualScreeningEventFactory;
-    export import screeningEvent = ScreeningEventFactory;
+    export import food = FoodEventFactory;
+    export import sports = SportsEventFactory;
 }
 export import eventStatusType = EventStatusType;
 export import eventType = EventType;
@@ -168,7 +165,7 @@ export import order = OrderFactory;
 export import orderStatus = OrderStatus;
 export namespace organization {
     export import corporation = CorporationOrganizationFactory;
-    export import movieTheater = MovieTheaterOrganizationFactory;
+    export import sportsTeam = SportsTeamOrganizationFactory;
 }
 export namespace organizationIdentifier {
     export import corporation = CorporationOrganizationIdentifier;

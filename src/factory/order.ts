@@ -4,12 +4,12 @@
  * which can contain multiple line items, each represented by an Offer that has been accepted by the customer.
  * 注文ファクトリー
  * 注文は、確定した注文取引の領収証に値するものです。
- * @namespace order
  */
 
-import { IEvent as IIndividualScreeningEvent } from './event/individualScreeningEvent';
+import { IEvent } from './event';
 import OrderStatus from './orderStatus';
 import OrganizationType from './organizationType';
+import PaymentMethodType from './paymentMethodType';
 import { IContact, IPerson } from './person';
 import PersonType from './personType';
 import PriceCurrency from './priceCurrency';
@@ -18,14 +18,13 @@ import * as EventReservationFactory from './reservation/event';
 /**
  * payment method interface
  * 決済方法イーターフェース
- * @export
  */
 export interface IPaymentMethod {
     name: string;
     /**
      * The name of the credit card or other method of payment for the order.
      */
-    paymentMethod: string;
+    paymentMethod: PaymentMethodType;
     /**
      * An identifier for the method of payment used (e.g.the last 4 digits of the credit card).
      */
@@ -35,7 +34,6 @@ export interface IPaymentMethod {
 /**
  * discount interface
  * 割引インターフェース
- * @export
  */
 export interface IDiscount {
     name: string;
@@ -56,14 +54,12 @@ export interface IDiscount {
 /**
  * offered item type
  * 供給アイテムインターフェース
- * @export
  */
-export type IItemOffered = EventReservationFactory.IEventReservation<IIndividualScreeningEvent>;
+export type IItemOffered = EventReservationFactory.IEventReservation<IEvent>;
 
 /**
  * key for inquiry of the order
  * 注文照会キーインターフェース
- * @export
  */
 export interface IOrderInquiryKey {
     theaterCode: string;
@@ -74,7 +70,6 @@ export interface IOrderInquiryKey {
 /**
  * offer interface
  * 供給インターフェース
- * @export
  */
 export interface IOffer {
     /**
@@ -101,7 +96,6 @@ export interface IOffer {
 /**
  * seller interface
  * 販売者インターフェース
- * @export
  */
 export interface ISeller {
     typeOf: OrganizationType | PersonType;
@@ -118,7 +112,6 @@ export interface ISeller {
 /**
  * customer interface
  * 購入者インターフェース
- * @export
  */
 export type ICustomer = IPerson & IContact & {
     name: string;
@@ -127,7 +120,6 @@ export type ICustomer = IPerson & IContact & {
 /**
  * order interface
  * 注文インターフェース
- * @export
  */
 export interface IOrder {
     /**

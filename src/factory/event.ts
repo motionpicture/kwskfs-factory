@@ -1,15 +1,16 @@
 /**
  * イベントファクトリー
- *
- * @namespace event
  */
 
 import * as CreativeWorkFactory from './creativeWork';
 import EventStatusType from './eventStatusType';
 import EventType from './eventType';
 import IMultilingualString from './multilingualString';
-// import * as OfferFactory from './offer';
+import { IOrganization } from './organization';
+import { IPerson } from './person';
 import * as PlaceFactory from './place';
+
+export type IAttendee = IOrganization | IPerson;
 
 /**
  * イベントインターフェース
@@ -73,38 +74,8 @@ export interface IEvent {
      * イベントで上演される作品
      */
     workPerformed?: CreativeWorkFactory.ICreativeWork;
-}
-
-export function create(params: {
-    typeOf: EventType;
-    identifier: string;
-    name: IMultilingualString;
-    description?: IMultilingualString;
-    doorTime?: Date;
-    duration?: string;
-    endDate?: Date;
-    eventStatus: EventStatusType;
-    location?: PlaceFactory.IPlace;
-    maximumAttendeeCapacity?: number;
-    // offers?: OfferFactory.IOffer[];
-    remainingAttendeeCapacity?: number;
-    startDate?: Date;
-    workPerformed?: CreativeWorkFactory.ICreativeWork;
-}): IEvent {
-    return {
-        identifier: params.identifier,
-        name: (params.name === undefined) ? { ja: '', en: '' } : params.name,
-        description: params.description,
-        doorTime: params.doorTime,
-        duration: (params.duration === undefined) ? undefined : params.duration.toString(),
-        endDate: params.endDate,
-        eventStatus: params.eventStatus,
-        location: params.location,
-        startDate: params.startDate,
-        workPerformed: params.workPerformed,
-        maximumAttendeeCapacity: params.maximumAttendeeCapacity,
-        // offers: params.offers,
-        remainingAttendeeCapacity: params.remainingAttendeeCapacity,
-        typeOf: params.typeOf
-    };
+    /**
+     * イベント参加者
+     */
+    attendee?: IAttendee[];
 }

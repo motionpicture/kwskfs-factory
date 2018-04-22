@@ -3,8 +3,8 @@
  */
 
 enum EventType {
-    ScreeningEvent = 'ScreeningEvent',
-    IndividualScreeningEvent = 'IndividualScreeningEvent'
+    SportsEvent = 'SportsEvent',
+    FoodEvent = 'FoodEvent'
 }
 
 export default EventType;

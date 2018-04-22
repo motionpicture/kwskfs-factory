@@ -4,7 +4,9 @@
 
 enum OrganizationType {
     Corporation = 'Corporation',
-    MovieTheater = 'MovieTheater'
+    SportsTeam = 'SportsTeam',
+    StadiumOrArena = 'StadiumOrArena',
+    Restaurant = 'Restaurant'
 }
 
 export default OrganizationType;
