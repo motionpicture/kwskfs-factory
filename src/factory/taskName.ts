@@ -13,17 +13,9 @@ enum TaskName {
      */
     CancelCreditCard = 'cancelCreditCard',
     /**
-     * ムビチケ承認アクション取消
-     */
-    CancelMvtk = 'cancelMvtk',
-    /**
      *  Eメールメッセージ送信
      */
     SendEmailMessage = 'sendEmailMessage',
-    /**
-     * ムビチケ使用
-     */
-    UseMvtk = 'useMvtk',
     /**
      * 注文受付
      */

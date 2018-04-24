@@ -1,10 +1,9 @@
 /**
  * 予約ファクトリー
- * @namespace reservation
  */
 
 import IMultilingualString from './multilingualString';
-import { ICOATicketInfoWithDetails } from './offer/seatReservation';
+import { IMenuItem } from './organization/restaurant';
 import OrganizationType from './organizationType';
 import PersonType from './personType';
 import PlaceType from './placeType';
@@ -15,7 +14,6 @@ import * as URLFactory from './url';
 
 /**
  * under name interface
- * @export
  */
 export interface IUnderName {
     typeOf: OrganizationType | PersonType;
@@ -24,10 +22,9 @@ export interface IUnderName {
 
 /**
  * seat interface
- * @export
  */
 export interface ISeat {
-    typeOf: PlaceType;
+    typeOf: PlaceType.Seat;
     /**
      * The cabin/class of the seat.
      */
@@ -47,16 +44,13 @@ export interface ISeat {
     seatSection: string;
 }
 
+export type TicketType = 'Ticket';
+
 /**
  * 予約チケット情報
- * @export
  */
 export interface ITicket {
-    typeOf: string;
-    /**
-     * COA券種情報
-     */
-    coaTicketInfo: ICOATicketInfoWithDetails;
+    typeOf: TicketType;
     /**
      * The date the ticket was issued.
      */
@@ -76,7 +70,11 @@ export interface ITicket {
     /**
      * The seat associated with the ticket.
      */
-    ticketedSeat: ISeat;
+    ticketedSeat?: ISeat;
+    /**
+     * The seat associated with the ticket.
+     */
+    ticketedMenuItem?: IMenuItem;
     /**
      * Where the ticket can be downloaded.
      */
@@ -107,7 +105,6 @@ export interface ITicket {
  * Note: This type is for information about actual reservations,
  * e.g. in confirmation emails or HTML pages with individual confirmations of reservations.
  * For offers of tickets, restaurant reservations, flights, or rental cars, use Offer.
- * @export
  */
 export interface IReservation {
     /**
@@ -149,7 +146,11 @@ export interface IReservation {
     /**
      * Number of seats if unreserved seating.
      */
-    numSeats: number;
+    numSeats?: number;
+    /**
+     * メニューアイテムに対するチケットの場合、アイテム数
+     */
+    numMenuItems?: number;
     /**
      * Total price of the Reservation.
      */

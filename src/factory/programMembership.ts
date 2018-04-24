@@ -1,11 +1,11 @@
 /**
- * programMembership factory
+ * 会員プログラムファクトリー
  */
 
 export type ProgramName = 'Cognito' | 'LINE';
 
 /**
- * Used to describe membership in a loyalty programs
+ * 会員プログラムインターフェース
  * (e.g. "StarAliance"), traveler clubs (e.g. "AAA"), purchase clubs ("Safeway Club"), etc.
  */
 export interface IProgramMembership {

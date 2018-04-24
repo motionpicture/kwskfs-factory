@@ -79,11 +79,11 @@ export interface IObject {
     /**
      * WAITER許可証トークン
      */
-    passportToken: waiter.factory.passport.IEncodedPassport;
+    passportToken?: waiter.factory.passport.IEncodedPassport;
     /**
      * WAITER許可証
      */
-    passport: waiter.factory.passport.IPassport;
+    passport?: waiter.factory.passport.IPassport;
     /**
      * user object of the client where a transaction is processing.
      */

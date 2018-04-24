@@ -5,7 +5,6 @@
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
 import { IOrder } from '../../order';
-import { IAttributes as IUseMvtkActionAttributes } from '../consume/use/mvtk';
 import { IAttributes as IPayActionAttributes } from '../trade/pay';
 import { IAttributes as ISendOrderActionAttributes } from '../transfer/send/order';
 
@@ -29,10 +28,6 @@ export interface IPotentialActions {
      * クレジットカード決済アクション
      */
     payPecorino?: IPayActionAttributes;
-    /**
-     * ムビチケ使用アクション
-     */
-    useMvtk?: IUseMvtkActionAttributes;
 }
 
 export interface IAttributes extends ActionFactory.IAttributes<IObject, IResult> {

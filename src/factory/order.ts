@@ -52,24 +52,20 @@ export interface IDiscount {
 }
 
 /**
- * offered item type
  * 供給アイテムインターフェース
  */
 export type IItemOffered = EventReservationFactory.IEventReservation<IEvent>;
 
 /**
- * key for inquiry of the order
  * 注文照会キーインターフェース
  */
 export interface IOrderInquiryKey {
-    theaterCode: string;
     confirmationNumber: number;
     telephone: string;
 }
 
 /**
- * offer interface
- * 供給インターフェース
+ * オファーインターフェース
  */
 export interface IOffer {
     /**

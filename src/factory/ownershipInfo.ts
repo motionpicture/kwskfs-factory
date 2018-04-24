@@ -1,6 +1,5 @@
 /**
  * 所有権ファクトリー
- * @namespace ownershipInfo
  */
 
 import OrganizationType from './organizationType';
@@ -8,12 +7,12 @@ import PersonType from './personType';
 import { IReservation } from './reservation';
 
 /**
- * good interface (Product or Service)
+ * 所有対象インタエーフェース (Product or Service)
  */
 export type IGood = IReservation;
 
 /**
- * owner interface
+ * 所有者インターフェース
  */
 export interface IOwner {
     typeOf: OrganizationType | PersonType;
@@ -22,7 +21,7 @@ export interface IOwner {
 }
 
 /**
- * ownershipInfo interface
+ * 所有権インターフェース
  */
 export interface IOwnershipInfo<T extends IGood> {
     /**
@@ -48,7 +47,7 @@ export interface IOwnershipInfo<T extends IGood> {
     /**
      * The date and time of giving up ownership on the product.
      */
-    ownedThrough: Date;
+    ownedThrough?: Date;
     /**
      * The product that this structured value is referring to.
      */

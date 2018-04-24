@@ -5,9 +5,9 @@
 import * as ActionFactory from './factory/action';
 import * as AuthorizeActionFactory from './factory/action/authorize';
 import * as CreditCardAuthorizeActionFactory from './factory/action/authorize/creditCard';
-import * as MvtkAuthorizeActionFactory from './factory/action/authorize/mvtk';
+import * as MenuItemEventReservationOfferAuthorizeActionFactory from './factory/action/authorize/offer/eventReservation/menuItem';
+import * as SeatEventReservationOfferAuthorizeActionFactory from './factory/action/authorize/offer/eventReservation/seat';
 import * as PecorinoAuthorizeActionFactory from './factory/action/authorize/pecorino';
-import * as UseMvtkActionFactory from './factory/action/consume/use/mvtk';
 import * as OrderActionFactory from './factory/action/trade/order';
 import * as PayActionFactory from './factory/action/trade/pay';
 import * as RefundActionFactory from './factory/action/trade/refund';
@@ -22,17 +22,20 @@ import ActionType from './factory/actionType';
 import * as ClientEventFactory from './factory/clientEvent';
 import * as ClientUserFactory from './factory/clientUser';
 import * as EmailMessageFactory from './factory/creativeWork/message/email';
-import * as MovieCreativeWorkFactory from './factory/creativeWork/movie';
 import CreativeWorkType from './factory/creativeWorkType';
+import * as EventFactory from './factory/event';
 import * as FoodEventFactory from './factory/event/food';
 import * as SportsEventFactory from './factory/event/sports';
 import EventStatusType from './factory/eventStatusType';
 import EventType from './factory/eventType';
 import IMultilingualString from './factory/multilingualString';
-import * as SeatReservationOfferFactory from './factory/offer/seatReservation';
+import * as MenuItemEventReservationOfferFactory from './factory/offer/eventReservation/menuItem';
+import * as SeatEventReservationOfferFactory from './factory/offer/eventReservation/seat';
 import * as OrderFactory from './factory/order';
 import OrderStatus from './factory/orderStatus';
+import * as OrganizationFactory from './factory/organization';
 import * as CorporationOrganizationFactory from './factory/organization/corporation';
+import * as RestaurantOrganizationFactory from './factory/organization/restaurant';
 import * as SportsTeamOrganizationFactory from './factory/organization/sportsTeam';
 import CorporationOrganizationIdentifier from './factory/organizationIdentifier/corporation';
 import OrganizationType from './factory/organizationType';
@@ -41,15 +44,14 @@ import * as CreditCardFactory from './factory/paymentMethod/paymentCard/creditCa
 import PaymentMethodType from './factory/paymentMethodType';
 import * as PersonFactory from './factory/person';
 import PersonType from './factory/personType';
-import * as MovieTheaterPlaceFactory from './factory/place/movieTheater';
 import PlaceType from './factory/placeType';
 import PriceCurrency from './factory/priceCurrency';
+import * as ProgramMembershipFactory from './factory/programMembership';
 import * as EventReservationFactory from './factory/reservation/event';
 import ReservationStatusType from './factory/reservationStatusType';
 import ReservationType from './factory/reservationType';
 
 import * as CancelCreditCardTaskFactory from './factory/task/cancelCreditCard';
-import * as CancelMvtkTaskFactory from './factory/task/cancelMvtk';
 import * as CancelSeatReservationTaskFactory from './factory/task/cancelSeatReservation';
 import * as PayCreditCardTaskFactory from './factory/task/payCreditCard';
 import * as PayPecorinoTaskFactory from './factory/task/payPecorino';
@@ -58,7 +60,6 @@ import * as RefundCreditCardTaskFactory from './factory/task/refundCreditCard';
 import * as ReturnOrderTaskFactory from './factory/task/returnOrder';
 import * as SendEmailMessageTaskFactory from './factory/task/sendEmailMessage';
 import * as SendOrderTaskFactory from './factory/task/sendOrder';
-import * as UseMvtkTaskFactory from './factory/task/useMvtk';
 
 import * as TaskFactory from './factory/task';
 import * as TaskExecutionResultFactory from './factory/taskExecutionResult';
@@ -91,8 +92,14 @@ export namespace action {
         // tslint:disable-next-line:no-shadowed-variable
         export import IAttributes = AuthorizeActionFactory.IAttributes;
         export import creditCard = CreditCardAuthorizeActionFactory;
-        export import mvtk = MvtkAuthorizeActionFactory;
         export import pecorino = PecorinoAuthorizeActionFactory;
+        // tslint:disable-next-line:no-shadowed-variable
+        export namespace offer {
+            export namespace eventReservation {
+                export import menuItem = MenuItemEventReservationOfferAuthorizeActionFactory;
+                export import seat = SeatEventReservationOfferAuthorizeActionFactory;
+            }
+        }
     }
 
     export namespace trade {
@@ -132,7 +139,6 @@ export namespace action {
 
     export namespace consume {
         export namespace use {
-            export import mvtk = UseMvtkActionFactory;
         }
     }
 }
@@ -148,10 +154,10 @@ export namespace creativeWork {
     export namespace message {
         export import email = EmailMessageFactory;
     }
-    export import movie = MovieCreativeWorkFactory;
 }
 export import creativeWorkType = CreativeWorkType;
 export namespace event {
+    export import IEvent = EventFactory.IEvent;
     export import food = FoodEventFactory;
     export import sports = SportsEventFactory;
 }
@@ -159,13 +165,18 @@ export import eventStatusType = EventStatusType;
 export import eventType = EventType;
 export type multilingualString = IMultilingualString;
 export namespace offer {
-    export import seatReservation = SeatReservationOfferFactory;
+    export namespace eventReservation {
+        export import menuItem = MenuItemEventReservationOfferFactory;
+        export import seat = SeatEventReservationOfferFactory;
+    }
 }
 export import order = OrderFactory;
 export import orderStatus = OrderStatus;
 export namespace organization {
+    export import IOrganization = OrganizationFactory.IOrganization;
     export import corporation = CorporationOrganizationFactory;
     export import sportsTeam = SportsTeamOrganizationFactory;
+    export import restaurant = RestaurantOrganizationFactory;
 }
 export namespace organizationIdentifier {
     export import corporation = CorporationOrganizationIdentifier;
@@ -174,11 +185,11 @@ export import organizationType = OrganizationType;
 export import ownershipInfo = OwnershipInfoFactory;
 export import priceCurrency = PriceCurrency;
 export namespace place {
-    export import movieTheater = MovieTheaterPlaceFactory;
 }
 export import paymentMethodType = PaymentMethodType;
 export import person = PersonFactory;
 export import personType = PersonType;
+export import programMembership = ProgramMembershipFactory;
 export import placeType = PlaceType;
 export namespace reservation {
     // tslint:disable-next-line:no-shadowed-variable
@@ -190,7 +201,6 @@ export namespace task {
     export import IAttributes = TaskFactory.IAttributes;
     export import ITask = TaskFactory.ITask;
     export import cancelCreditCard = CancelCreditCardTaskFactory;
-    export import cancelMvtk = CancelMvtkTaskFactory;
     export import cancelSeatReservation = CancelSeatReservationTaskFactory;
     export import placeOrder = PlaceOrderTaskFactory;
     export import refundCreditCard = RefundCreditCardTaskFactory;
@@ -199,7 +209,6 @@ export namespace task {
     export import sendOrder = SendOrderTaskFactory;
     export import payCreditCard = PayCreditCardTaskFactory;
     export import payPecorino = PayPecorinoTaskFactory;
-    export import useMvtk = UseMvtkTaskFactory;
 }
 export import taskExecutionResult = TaskExecutionResultFactory;
 export import taskName = TaskName;
