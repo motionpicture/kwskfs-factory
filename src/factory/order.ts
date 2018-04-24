@@ -96,6 +96,10 @@ export interface IOffer {
 export interface ISeller {
     typeOf: OrganizationType | PersonType;
     /**
+     * 販売者ID
+     */
+    id: string;
+    /**
      * Name of the Organization.
      */
     name: string;
@@ -183,4 +187,26 @@ export interface IOrder {
      * key for inquiry (required)
      */
     orderInquiryKey: IOrderInquiryKey;
+}
+
+/**
+ * 注文検索条件インターフェース
+ */
+export interface ISearchConditions {
+    /**
+     * 販売者ID
+     */
+    sellerId?: string;
+    /**
+     * 購入者ID
+     */
+    customerId?: string;
+    /**
+     * 注文番号
+     */
+    orderNumber?: string;
+    /**
+     * 注文ステータス
+     */
+    orderStatus?: OrderStatus;
 }

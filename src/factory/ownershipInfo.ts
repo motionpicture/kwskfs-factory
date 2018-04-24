@@ -2,14 +2,23 @@
  * 所有権ファクトリー
  */
 
+import { IEvent } from './event';
 import OrganizationType from './organizationType';
 import PersonType from './personType';
-import { IReservation } from './reservation';
+import { IEventReservation } from './reservation/event';
+import ReservationType from './reservationType';
 
 /**
- * 所有対象インタエーフェース (Product or Service)
+ * 所有対象物のタイプ
  */
-export type IGood = IReservation;
+export type IGoodType = ReservationType;
+
+/**
+ * 所有対象物インタエーフェース (Product or Service)
+ */
+export type IGood<T extends IGoodType> =
+    T extends ReservationType ? IEventReservation<IEvent> :
+    never;
 
 /**
  * 所有者インターフェース
@@ -23,7 +32,7 @@ export interface IOwner {
 /**
  * 所有権インターフェース
  */
-export interface IOwnershipInfo<T extends IGood> {
+export interface IOwnershipInfo<T extends IGoodType> {
     /**
      * object type
      */
@@ -49,7 +58,40 @@ export interface IOwnershipInfo<T extends IGood> {
      */
     ownedThrough?: Date;
     /**
-     * The product that this structured value is referring to.
+     * 所有対象物
      */
-    typeOfGood: T;
+    typeOfGood: IGood<T>;
+}
+
+/**
+ * 所有権検索条件インターフェース
+ */
+export interface ISearchConditions<T extends IGoodType> {
+    /**
+     * 所有対象物のタイプ
+     */
+    goodType: T;
+    /**
+     * 所有対象物
+     */
+    // typeOfGood?: {
+    //     /**
+    //      * どのイベント予約か
+    //      */
+    //     eventReservationFor?: {
+    //         /**
+    //          * イベントタイプ
+    //          */
+    //         typeOf: EventType;
+    //         identifier: string;
+    //     };
+    // };
+    /**
+     * 所有者ID
+     */
+    ownedBy?: string;
+    /**
+     * いつの時点での所有か
+     */
+    ownedAt?: Date;
 }

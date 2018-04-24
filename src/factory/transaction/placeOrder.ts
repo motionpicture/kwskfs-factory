@@ -1,7 +1,5 @@
 /**
- * placeOrder transaction factory
  * 注文取引ファクトリー
- * @namespace transaction.placeOrder
  */
 
 import * as waiter from '@motionpicture/waiter-domain';
@@ -15,7 +13,6 @@ import OrganizationType from '../organizationType';
 import * as OwnershipInfoFactory from '../ownershipInfo';
 import { IContact, IPerson } from '../person';
 import PersonType from '../personType';
-import { IReservation } from '../reservation';
 import * as TransactionFactory from '../transaction';
 import TransactionStatusType from '../transactionStatusType';
 import TransactionTasksExportationStatus from '../transactionTasksExportationStatus';
@@ -24,14 +21,12 @@ import TransactionType from '../transactionType';
 /**
  * customer contact interface
  * 購入者連作先インターフェース
- * @export
  */
 export type ICustomerContact = IContact;
 
 /**
  * seller interface
  * 販売者インターフェース
- * @export
  */
 export interface ISeller {
     typeOf: OrganizationType | PersonType;
@@ -43,14 +38,12 @@ export interface ISeller {
 /**
  * agent interface
  * 購入者インターフェース
- * @export
  */
 export type IAgent = IPerson;
 
 /**
  * result interface
  * 取引結果インターフェース
- * @export
  */
 export interface IResult {
     /**
@@ -60,20 +53,18 @@ export interface IResult {
     /**
      * 購入者に与えられる所有権リスト
      */
-    ownershipInfos: OwnershipInfoFactory.IOwnershipInfo<IReservation>[];
+    ownershipInfos: OwnershipInfoFactory.IOwnershipInfo<OwnershipInfoFactory.IGoodType>[];
 }
 
 /**
  * error interface
  * エラーインターフェース
- * @export
  */
 export type IError = any;
 
 /**
  * object of a transaction interface
  * 取引対象物インターフェース
- * @export
  */
 export interface IObject {
     /**
@@ -107,7 +98,6 @@ export type ITransaction = IExtendId<IAttributes>;
 /**
  * place order transaction interface
  * 注文取引インターフェース
- * @export
  */
 export interface IAttributes extends TransactionFactory.IAttributes<IAgent, IObject, IResult> {
     /**
@@ -139,8 +129,7 @@ export interface IAttributes extends TransactionFactory.IAttributes<IAgent, IObj
 
 /**
  * create placeOrderTransaction object.
- * 注文取引オブジェクトを生成する。
- * @export
+ * 注文取引オブジェクトを生成する
  */
 export function createAttributes(params: {
     status: TransactionStatusType;
