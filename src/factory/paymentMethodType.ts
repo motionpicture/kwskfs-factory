@@ -4,7 +4,8 @@
 
 enum PaymentMethodType {
     CreditCard = 'CreditCard',
-    Pecorino = 'Pecorino'
+    Pecorino = 'Pecorino',
+    Bluelab = 'Bluelab'
 }
 
 export default PaymentMethodType;

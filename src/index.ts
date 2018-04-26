@@ -174,6 +174,7 @@ export import order = OrderFactory;
 export import orderStatus = OrderStatus;
 export namespace organization {
     export import IOrganization = OrganizationFactory.IOrganization;
+    export import IPaymentAccepted = OrganizationFactory.IPaymentAccepted;
     export import corporation = CorporationOrganizationFactory;
     export import sportsTeam = SportsTeamOrganizationFactory;
     export import restaurant = RestaurantOrganizationFactory;

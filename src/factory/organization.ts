@@ -5,6 +5,7 @@
 
 import IMultilingualString from './multilingualString';
 import OrganizationType from './organizationType';
+import PaymentMethodType from './PaymentMethodType';
 import * as URLFactory from './url';
 
 /**
@@ -25,6 +26,24 @@ export interface IGMOInfo {
     shopPass: string;
 }
 
+export interface IPecorinoPaymentAccepted {
+    paymentMethodType: PaymentMethodType.Pecorino;
+    accountId: string;
+}
+export interface IBlueLabPaymentAccepted {
+    paymentMethodType: PaymentMethodType.Bluelab;
+    branchNumber: string;
+    accountNumber: string;
+    accountName: string;
+}
+/**
+ * 利用可能決済インターフェース
+ */
+export type IPaymentAccepted<T extends PaymentMethodType> =
+    T extends PaymentMethodType.Pecorino ? IPecorinoPaymentAccepted :
+    T extends PaymentMethodType.Bluelab ? IBlueLabPaymentAccepted :
+    never;
+
 /**
  * 組織インターフェース
  */
@@ -42,4 +61,5 @@ export interface IOrganization {
      */
     gmoInfo?: IGMOInfo;
     image?: string;
+    paymentAccepted: IPaymentAccepted<PaymentMethodType>[];
 }

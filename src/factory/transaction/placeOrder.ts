@@ -76,6 +76,10 @@ export interface IObject {
      */
     passport?: waiter.factory.passport.IPassport;
     /**
+     * 取引開始時のアクセストークン
+     */
+    accessToken: string;
+    /**
      * user object of the client where a transaction is processing.
      */
     clientUser: IClientUser;
