@@ -5,7 +5,7 @@
 
 import IMultilingualString from './multilingualString';
 import OrganizationType from './organizationType';
-import PaymentMethodType from './PaymentMethodType';
+import PaymentMethodType from './paymentMethodType';
 import * as URLFactory from './url';
 
 /**
