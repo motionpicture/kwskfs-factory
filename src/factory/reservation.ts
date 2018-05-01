@@ -3,8 +3,10 @@
  */
 
 import IMultilingualString from './multilingualString';
+import { IOrganization } from './organization';
 import { IMenuItem } from './organization/restaurant';
 import OrganizationType from './organizationType';
+import { IPerson } from './person';
 import PersonType from './personType';
 import PlaceType from './placeType';
 import PriceCurrency from './priceCurrency';
@@ -99,6 +101,8 @@ export interface ITicket {
     underName: IUnderName;
 }
 
+export type IProvider = IOrganization | IPerson;
+
 /**
  * reservation interface
  * Describes a reservation for travel, dining or an event. Some reservations require tickets.
@@ -163,6 +167,10 @@ export interface IReservation {
      * Any membership in a frequent flyer, hotel loyalty program, etc. being applied to the reservation.
      */
     programMembershipUsed?: string;
+    /**
+     * 誰に提供されるサービスに対する予約か
+     */
+    provider?: IProvider;
     /**
      * The thing -- restaurant, movie, event, flight, etc. -- the reservation is for.
      */

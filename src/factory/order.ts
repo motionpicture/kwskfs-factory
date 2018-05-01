@@ -60,7 +60,7 @@ export type IItemOffered = EventReservationFactory.IEventReservation<IEvent>;
  * 注文照会キーインターフェース
  */
 export interface IOrderInquiryKey {
-    confirmationNumber: number;
+    confirmationNumber: string;
     telephone: string;
 }
 
@@ -139,7 +139,7 @@ export interface IOrder {
     /**
      * A number that confirms the given order or payment has been received.
      */
-    confirmationNumber: number;
+    confirmationNumber: string;
     /**
      * The merchant- specific identifier for the transaction.
      */
