@@ -1,8 +1,8 @@
 /**
  * Pecorino口座承認アクションファクトリー
- * @namespace action.authorize.pecorino
  */
 
+import * as pecorinoFactory from '@motionpicture/pecorino-factory';
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
 import { ITransaction } from '../../transaction/placeOrder';
@@ -24,11 +24,11 @@ export interface IObject {
     price: number;
 }
 
+export type IPecorinoTransaction = pecorinoFactory.transaction.pay.ITransaction | pecorinoFactory.transaction.transfer.ITransaction;
+
 export interface IResult {
     price: number;
-    // tslint:disable-next-line:no-suspicious-comment
-    // TODO pecorino-factoryから型を引用
-    pecorinoTransaction: any;
+    pecorinoTransaction: IPecorinoTransaction;
     pecorinoEndpoint: string;
 }
 
