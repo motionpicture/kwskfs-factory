@@ -53,6 +53,7 @@ import ReservationStatusType from './factory/reservationStatusType';
 import ReservationType from './factory/reservationType';
 
 import * as CancelCreditCardTaskFactory from './factory/task/cancelCreditCard';
+import * as CancelPecorinoTaskFactory from './factory/task/cancelPecorino';
 import * as CancelSeatReservationTaskFactory from './factory/task/cancelSeatReservation';
 import * as PayCreditCardTaskFactory from './factory/task/payCreditCard';
 import * as PayPecorinoTaskFactory from './factory/task/payPecorino';
@@ -205,6 +206,7 @@ export namespace task {
     export import IAttributes = TaskFactory.IAttributes;
     export import ITask = TaskFactory.ITask;
     export import cancelCreditCard = CancelCreditCardTaskFactory;
+    export import cancelPecorino = CancelPecorinoTaskFactory;
     export import cancelSeatReservation = CancelSeatReservationTaskFactory;
     export import placeOrder = PlaceOrderTaskFactory;
     export import refundCreditCard = RefundCreditCardTaskFactory;

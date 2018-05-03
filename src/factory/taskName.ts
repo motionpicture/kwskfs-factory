@@ -13,6 +13,10 @@ enum TaskName {
      */
     CancelCreditCard = 'cancelCreditCard',
     /**
+     * Pecorino口座承認アクション取消
+     */
+    CancelPecorino = 'cancelPecorino',
+    /**
      *  Eメールメッセージ送信
      */
     SendEmailMessage = 'sendEmailMessage',
