@@ -37,6 +37,10 @@ enum TaskName {
      */
     PayPecorino = 'payPecorino',
     /**
+     * Bluelab支払
+     */
+    PayBluelab = 'payBluelab',
+    /**
      * 注文配送
      */
     SendOrder = 'sendOrder',

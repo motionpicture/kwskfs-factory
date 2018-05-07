@@ -34,6 +34,8 @@ export interface IResult {
      * クレジットカード売上結果
      */
     creditCardSales?: GMO.services.credit.IAlterTranResult;
+    bluelabProcessPaymentParams?: any;
+    bluelabProcessPaymentResult?: any;
 }
 
 export interface IAttributes extends ActionFactory.IAttributes<IObject, IResult> {

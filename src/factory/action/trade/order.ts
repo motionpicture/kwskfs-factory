@@ -25,9 +25,13 @@ export interface IPotentialActions {
      */
     payCreditCard?: IPayActionAttributes;
     /**
-     * クレジットカード決済アクション
+     * Pecorino決済アクション
      */
     payPecorino?: IPayActionAttributes;
+    /**
+     * Bluelab決済アクション
+     */
+    payBluelab?: IPayActionAttributes;
 }
 
 export interface IAttributes extends ActionFactory.IAttributes<IObject, IResult> {

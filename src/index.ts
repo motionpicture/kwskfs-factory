@@ -56,6 +56,7 @@ import ReservationType from './factory/reservationType';
 import * as CancelCreditCardTaskFactory from './factory/task/cancelCreditCard';
 import * as CancelPecorinoTaskFactory from './factory/task/cancelPecorino';
 import * as CancelSeatReservationTaskFactory from './factory/task/cancelSeatReservation';
+import * as PayBluelabTaskFactory from './factory/task/payBluelab';
 import * as PayCreditCardTaskFactory from './factory/task/payCreditCard';
 import * as PayPecorinoTaskFactory from './factory/task/payPecorino';
 import * as PlaceOrderTaskFactory from './factory/task/placeOrder';
@@ -215,6 +216,7 @@ export namespace task {
     export import returnOrder = ReturnOrderTaskFactory;
     export import sendEmailMessage = SendEmailMessageTaskFactory;
     export import sendOrder = SendOrderTaskFactory;
+    export import payBluelab = PayBluelabTaskFactory;
     export import payCreditCard = PayCreditCardTaskFactory;
     export import payPecorino = PayPecorinoTaskFactory;
 }
