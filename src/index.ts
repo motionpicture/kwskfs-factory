@@ -29,6 +29,7 @@ import * as FoodEventFactory from './factory/event/food';
 import * as SportsEventFactory from './factory/event/sports';
 import EventStatusType from './factory/eventStatusType';
 import EventType from './factory/eventType';
+import ItemAvailability from './factory/itemAvailability';
 import IMultilingualString from './factory/multilingualString';
 import * as MenuItemEventReservationOfferFactory from './factory/offer/eventReservation/menuItem';
 import * as SeatEventReservationOfferFactory from './factory/offer/eventReservation/seat';
@@ -167,6 +168,7 @@ export namespace event {
 }
 export import eventStatusType = EventStatusType;
 export import eventType = EventType;
+export import itemAvailability = ItemAvailability;
 export type multilingualString = IMultilingualString;
 export namespace offer {
     export namespace eventReservation {
