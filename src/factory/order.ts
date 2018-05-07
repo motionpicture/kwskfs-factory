@@ -209,4 +209,12 @@ export interface ISearchConditions {
      * 注文ステータス
      */
     orderStatus?: OrderStatus;
+    /**
+     * 注文日時(から)
+     */
+    orderDateFrom?: Date;
+    /**
+     * 注文日時(まで)
+     */
+    orderDateThrough?: Date;
 }
