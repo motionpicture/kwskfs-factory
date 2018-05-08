@@ -9,6 +9,7 @@ enum ActionType {
     RefundAction = 'RefundAction',
     ReturnAction = 'ReturnAction',
     SendAction = 'SendAction',
+    UpdateAction = 'UpdateAction',
     UseAction = 'UseAction'
 }
 
