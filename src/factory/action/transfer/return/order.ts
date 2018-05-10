@@ -1,7 +1,6 @@
 /**
  * 注文返品アクションファクトリー
  */
-
 import * as ActionFactory from '../../../action';
 import { IOrder } from '../../../order';
 import { IAttributes as IRefundActionAttributes } from '../../trade/refund';
@@ -19,9 +18,9 @@ export type IResult = any;
 
 export interface IPotentialActions {
     /**
-     * 返金アクション属性
+     * 返金アクション属性リスト
      */
-    refund: IRefundActionAttributes;
+    refund: IRefundActionAttributes[];
 }
 
 export interface IAttributes extends ReturnActionFactory.IAttributes<IObject, IResult> {

@@ -61,6 +61,7 @@ import * as PayCreditCardTaskFactory from './factory/task/payCreditCard';
 import * as PayPecorinoTaskFactory from './factory/task/payPecorino';
 import * as PlaceOrderTaskFactory from './factory/task/placeOrder';
 import * as RefundCreditCardTaskFactory from './factory/task/refundCreditCard';
+import * as RefundPecorinoTaskFactory from './factory/task/refundPecorino';
 import * as ReturnOrderTaskFactory from './factory/task/returnOrder';
 import * as SendEmailMessageTaskFactory from './factory/task/sendEmailMessage';
 import * as SendOrderTaskFactory from './factory/task/sendOrder';
@@ -213,6 +214,7 @@ export namespace task {
     export import cancelSeatReservation = CancelSeatReservationTaskFactory;
     export import placeOrder = PlaceOrderTaskFactory;
     export import refundCreditCard = RefundCreditCardTaskFactory;
+    export import refundPecorino = RefundPecorinoTaskFactory;
     export import returnOrder = ReturnOrderTaskFactory;
     export import sendEmailMessage = SendEmailMessageTaskFactory;
     export import sendOrder = SendOrderTaskFactory;

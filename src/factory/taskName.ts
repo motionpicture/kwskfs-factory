@@ -47,7 +47,11 @@ enum TaskName {
     /**
      * クレジットカード返金
      */
-    RefundCreditCard = 'refundCreditCard'
+    RefundCreditCard = 'refundCreditCard',
+    /**
+     * Pecorino返金
+     */
+    RefundPecorino = 'refundPecorino'
 }
 
 export default TaskName;
