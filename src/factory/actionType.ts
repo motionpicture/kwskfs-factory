@@ -3,6 +3,7 @@
  */
 enum ActionType {
     AuthorizeAction = 'AuthorizeAction',
+    CheckInAction = 'CheckInAction',
     OrderAction = 'OrderAction',
     PayAction = 'PayAction',
     PrintAction = 'PrintAction',

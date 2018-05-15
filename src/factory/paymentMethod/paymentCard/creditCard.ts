@@ -91,8 +91,8 @@ export function createCheckedCardFromGMOSearchCardResult(
  * @export
  * @param params.cardNo カード番号
  * @param [params.cardPass] カードパスワード
- * @param params.expire 有効期限 名義人
- * @param params.holderName
+ * @param params.expire 有効期限
+ * @param params.holderName 名義人
  */
 export function createUncheckedCardRaw(params: {
     cardNo: string;

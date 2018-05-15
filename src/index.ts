@@ -9,6 +9,7 @@ import * as CreditCardAuthorizeActionFactory from './factory/action/authorize/cr
 import * as MenuItemEventReservationOfferAuthorizeActionFactory from './factory/action/authorize/offer/eventReservation/menuItem';
 import * as SeatEventReservationOfferAuthorizeActionFactory from './factory/action/authorize/offer/eventReservation/seat';
 import * as PecorinoAuthorizeActionFactory from './factory/action/authorize/pecorino';
+import * as CheckInActionFactory from './factory/action/interact/communicate/checkIn';
 import * as OrderActionFactory from './factory/action/trade/order';
 import * as PayActionFactory from './factory/action/trade/pay';
 import * as RefundActionFactory from './factory/action/trade/refund';
@@ -91,6 +92,12 @@ export namespace action {
     export import IAttributes = ActionFactory.IAttributes;
     export import IParticipant = ActionFactory.IParticipant;
     export import IPurpose = ActionFactory.IPurpose;
+
+    export namespace interact {
+        export namespace communicate {
+            export import checkIn = CheckInActionFactory;
+        }
+    }
 
     export namespace authorize {
         // tslint:disable-next-line:no-shadowed-variable
